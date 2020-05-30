@@ -11,7 +11,7 @@ const Engine = Matter.Engine,
     var box,chain;
     
 function setup() {
-    createCanvas(1200, 600);
+    var canvas = createCanvas(1200, 600);
     engine = Engine.create();
     world = engine.world;
 
@@ -50,6 +50,7 @@ function setup() {
 function draw() { 
    background("#00FFFF");
    Engine.update(engine);
+   strokeWeight(4);
    ground.display();
    plain1.display();
    plain2.display();
@@ -87,3 +88,9 @@ function mouseDragged() {
   function mouseReleased() {
     chain.Fly(); 
   }
+
+  function keyPressed(){
+   if(keyCode = 32){
+     chain.attach(ball.body);
+   }
+  } 
